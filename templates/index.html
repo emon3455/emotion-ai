@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emotion AI</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@2.2.2/dist/full.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100">
+    <nav class="bg-gray-800 p-4">
+        <div class="container mx-auto flex justify-between items-center">
+            <a href="/" class="text-white text-xl font-bold">Emotion AI</a>
+            <div>
+                <a href="/" class="text-gray-300 hover:text-white mr-4">Home</a>
+                {% if session.get('username') %}
+                    <a href="/analysis" class="text-gray-300 hover:text-white mr-4">Dashboard</a>
+                    <a href="/logout" class="text-gray-300 hover:text-white">Logout</a>
+                {% else %}
+                    <a href="/login" class="text-gray-300 hover:text-white mr-4">Login</a>
+                {% endif %}
+            </div>
+        </div>
+    </nav>
+    <div class="hero bg-cover bg-center" style="background-image: url('/static/images/background.jpg'); height: 547px">
+        <div class="hero-overlay bg-opacity-90"></div>
+        <div class="flex items-center justify-center h-full">
+            <div class="bg-white bg-opacity-80 p-10 rounded shadow-lg text-center">
+                <h1 class="text-3xl font-bold mb-4">Welcome to Emotion AI, A Journey Through your mind</h1>
+                <p class="text-lg text-gray-700">
+                    Join us and analys your sentiment with our Intelligent system.
+                </p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

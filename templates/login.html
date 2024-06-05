@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Emotion AI</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/daisyui@2.2.2/dist/full.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="">
+    <nav class="bg-gray-800 p-4">
+      <div class="container mx-auto flex justify-between items-center">
+        <a href="/" class="text-white text-xl font-bold">Emotion AI</a>
+        <div>
+          <a href="/" class="text-gray-300 hover:text-white mr-4">Home</a>
+          {% if session.get('username') %}
+          <a href="/analysis" class="text-gray-300 hover:text-white mr-4"
+            >Dashboard</a
+          >
+          <a href="/logout" class="text-gray-300 hover:text-white">Logout</a>
+          {% else %}
+          <a href="/login" class="text-gray-300 hover:text-white mr-4">Login</a>
+          {% endif %}
+        </div>
+      </div>
+    </nav>
+    <div class="max-w-lg mx-auto mt-10">
+      <h2 class="text-2xl font-bold mb-4">Login</h2>
+      <form method="POST" action="/login">
+        <div class="mb-4">
+          <label for="username" class="block text-lg font-medium mb-2"
+            >Username:</label
+          >
+          <input
+            type="text"
+            id="username"
+            name="username"
+            class="input input-bordered w-full"
+            required
+          />
+        </div>
+        <div class="mb-4">
+          <label for="password" class="block text-lg font-medium mb-2"
+            >Password:</label
+          >
+          <input
+            type="password"
+            id="password"
+            name="password"
+            class="input input-bordered w-full"
+            required
+          />
+        </div>
+        <button type="submit" class="btn btn-primary">Login</button>
+      </form>
+      <h2 class="text-center">
+        Don't Have Any Account ? Please
+        <a href="/register" class="text-blue-600">Register</a>
+      </h2>
+    </div>
+  </body>
+</html>

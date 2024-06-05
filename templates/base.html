@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emotion AI Dashboard</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@2.2.2/dist/full.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100">
+    <div class="min-h-screen flex">
+        <nav class="w-1/5 bg-gray-800 text-white min-h-screen p-4">
+            <h2 class="text-2xl font-bold text-center border-b-2">Emotion AI</h2>
+            <ul class="menu transition-all duration-500">
+                <li class="hover:bg-sky-600 hover:text-white">
+                    <a href="{{ url_for('landing_page') }}" class="text-gray-300 hover:text-white">Home</a>
+                </li>
+                <li>
+                    <a href="{{ url_for('analysis') }}" class="text-gray-300 hover:text-white">Analysis</a>
+                </li>
+                <li>
+                    <a href="{{ url_for('statistics') }}" class="text-gray-300 hover:text-white">Statistics</a>
+                </li>
+            </ul>
+        </nav>
+        <main class="flex-1 p-6">
+            {% block content %}{% endblock %}
+        </main>
+    </div>
+</body>
+</html>

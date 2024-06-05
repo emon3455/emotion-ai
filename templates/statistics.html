@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h2 class="text-2xl font-bold mb-4">Model Statistics</h2>
+<div class="mb-8">
+    <img src="data:image/png;base64,{{ plot_url }}" alt="Confusion Matrix" class="w-2/3 mx-auto">
+</div>
+
+<h4 class="text-xl font-semibold mb-4">Overall Accuracy: {{ '%.2f' % (accuracy * 100) }}%</h4>
+
+<h3 class="text-xl font-bold mb-4">Classification Report</h3>
+<div class="overflow-x-auto">
+    <table class="table table-zebra w-full">
+        <thead>
+            <tr>
+                <th>Class</th>
+                <th>Precision</th>
+                <th>Recall</th>
+                <th>F1-Score</th>
+                <th>Support</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for label, metrics in classification_rep.items() %}
+                {% if label != 'accuracy' %}
+                <tr>
+                    <td>{{ label }}</td>
+                    <td>{{ metrics['precision'] | round(2) }}</td>
+                    <td>{{ metrics['recall'] | round(2) }}</td>
+                    <td>{{ metrics['f1-score'] | round(2) }}</td>
+                    <td>{{ metrics['support'] }}</td>
+                </tr>
+                {% endif %}
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}
