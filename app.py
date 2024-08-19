@@ -178,7 +178,7 @@ def login():
                         return redirect(url_for('landing_page'))
 
         flash('Invalid username or password.')
-            
+
     return render_template('login.html')
 
 @app.route('/logout')
@@ -221,5 +221,3 @@ def statistics():
 
     return render_template('statistics.html', plot_url=plot_url, classification_rep=classification_rep, accuracy=accuracy)
 
-if __name__ == "__main__":
-    app.run(debug=True, host="127.0.0.1", port=5002, threaded=True)
